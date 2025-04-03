@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <title>ComfyUI Instance Manager</title>
+</head>
+<body class="ocean-theme">
+<div class="container mt-5">
+    <h1 class="text-center">ComfyUI Instance Manager</h1>
+    <div class="table-responsive ocean-table mx-auto">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+            <tr>
+                <th>Application</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr id="rowSri">
+                <td>Sri</td>
+                <td>
+                    	<button class="btn setup-comfy">Setup</button>
+			<button class="btn btn-success start-comfy" data-user="sri">Start</button>
+			<button class="btn btn-danger stop-comfy">Stop</button>
+                </td>
+            </tr>
+            <tr id="rowAbhijith">
+                <td>Abhijith</td>
+                <td>
+                    <button class="btn btn-success start-comfy" data-user="abhijith">Start</button>
+                    <button class="btn btn-danger stop-comfy">Stop</button>
+                </td>
+            </tr>
+            <tr id="rowAbhiram">
+                <td>Abhiram</td>
+                <td>
+                    <button class="btn btn-success start-comfy" data-user="abhiram">Start</button>
+                    <button class="btn btn-danger stop-comfy">Stop</button>
+                </td>
+            </tr>
+            <tr id="rowBharath">
+                <td>Bharath</td>
+                <td>
+                    <button class="btn btn-success start-comfy" data-user="bharath">Start</button>
+                    <button class="btn btn-danger stop-comfy">Stop</button>
+                </td>
+            </tr>
+            <tr id="rowPavan">
+                <td>Pavan</td>
+                <td>                   
+                    <button class="btn btn-success start-comfy" data-user="pavan">Start</button>
+                    <button class="btn btn-danger stop-comfy">Stop</button>
+                </td>
+            </tr>
+            <tr id="rowLalitha">
+                <td>Lalitha</td>
+                <td>
+                    <button class="btn btn-success start-comfy" data-user="lalitha">Start</button>
+                    <button class="btn btn-danger stop-comfy">Stop</button>
+
+                </td>
+            </tr>
+            <tr id="rowMoulika">
+                <td>Moulika</td>
+                <td>
+                    <button class="btn btn-success start-comfy" data-user="moulika">Start</button>
+                    <button class="btn btn-danger stop-comfy">Stop</button>
+                </td>
+            </tr>
+            <tr id="rowSudheer">
+                <td>Sudheer</td>
+                <td>
+                    <button class="btn btn-success start-comfy" data-user="sudheer">Start</button>
+                    <button class="btn btn-danger stop-comfy">Stop</button>
+                </td>
+            </tr>
+            <tr id="rowExtra">
+                <td>Extra</td>
+                <td>
+                    <button class="btn btn-success start-comfy" data-user="extra">Start</button>
+                    <button class="btn btn-danger stop-comfy">Stop</button>
+                </td>
+            </tr>
+            <tr id="rowIntern">
+                <td>Intern</td>
+                <td>
+                    <button class="btn btn-success start-comfy" data-user="intern">Start</button>
+                    <button class="btn btn-danger stop-comfy">Stop</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="log-container">
+        <h3>Logs</h3>
+        <pre id="log-output" class="log-box"></pre>
+    </div>
+    
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+<script src="/script.js"></script>
+</body>
+</html>
