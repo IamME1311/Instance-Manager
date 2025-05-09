@@ -1,110 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/style.css" />
-    <title>ComfyUI Instance Manager</title>
-</head>
-<body class="ocean-theme">
-<div class="container mt-5">
-    <h1 class="text-center">ComfyUI Instance Manager</h1>
-    <div class="table-responsive ocean-table mx-auto">
-        <table class="table table-bordered table-hover">
-            <thead class="thead-dark">
-            <tr>
-                <th>Application</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-
-            <tr id="rowSri">
-                <td>Sri</td>
-                <td>
-                    	<button class="btn setup-comfy">Setup</button>
-			<button class="btn btn-success start-comfy" data-user="sri">Start</button>
-			<button class="btn btn-danger stop-comfy">Stop</button>
-                </td>
-            </tr>
-            <tr id="rowAbhijith">
-                <td>Abhijith</td>
-                <td>
-                    <button class="btn btn-success start-comfy" data-user="abhijith">Start</button>
-                    <button class="btn btn-danger stop-comfy">Stop</button>
-                </td>
-            </tr>
-            <tr id="rowAbhiram">
-                <td>Abhiram</td>
-                <td>
-                    <button class="btn btn-success start-comfy" data-user="abhiram">Start</button>
-                    <button class="btn btn-danger stop-comfy">Stop</button>
-                </td>
-            </tr>
-            <tr id="rowBharath">
-                <td>Bharath</td>
-                <td>
-                    <button class="btn btn-success start-comfy" data-user="bharath">Start</button>
-                    <button class="btn btn-danger stop-comfy">Stop</button>
-                </td>
-            </tr>
-            <tr id="rowPavan">
-                <td>Pavan</td>
-                <td>                   
-                    <button class="btn btn-success start-comfy" data-user="pavan">Start</button>
-                    <button class="btn btn-danger stop-comfy">Stop</button>
-                </td>
-            </tr>
-            <tr id="rowLalitha">
-                <td>Lalitha</td>
-                <td>
-                    <button class="btn btn-success start-comfy" data-user="lalitha">Start</button>
-                    <button class="btn btn-danger stop-comfy">Stop</button>
-
-                </td>
-            </tr>
-            <tr id="rowMoulika">
-                <td>Moulika</td>
-                <td>
-                    <button class="btn btn-success start-comfy" data-user="moulika">Start</button>
-                    <button class="btn btn-danger stop-comfy">Stop</button>
-                </td>
-            </tr>
-            <tr id="rowSudheer">
-                <td>Sudheer</td>
-                <td>
-                    <button class="btn btn-success start-comfy" data-user="sudheer">Start</button>
-                    <button class="btn btn-danger stop-comfy">Stop</button>
-                </td>
-            </tr>
-            <tr id="rowExtra">
-                <td>Extra</td>
-                <td>
-                    <button class="btn btn-success start-comfy" data-user="extra">Start</button>
-                    <button class="btn btn-danger stop-comfy">Stop</button>
-                </td>
-            </tr>
-            <tr id="rowIntern">
-                <td>Intern</td>
-                <td>
-                    <button class="btn btn-success start-comfy" data-user="intern">Start</button>
-                    <button class="btn btn-danger stop-comfy">Stop</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <title>Instance Manager</title>
+  </head>
+  <body>
+    <header class="header" id="pageHeader">
+      <h1>Instance Manager</h1>
+    </header>
+    <!-- Name Card Container -->
+    <div class="container">
+      <div class="card person1">
+        <div class="name"></div>
+        <div class="card-buttons hidden">
+          <button class="setup-button hidden">Setup</button>
+          <button class="start-button" onclick="startComfy(`person1`)">
+            Start
+          </button>
+          <button class="stop-button" onclick="stopComfy()">Stop</button>
+        </div>
+      </div>
+      <div class="card person2">
+        <div class="name"></div>
+        <div class="card-buttons hidden">
+          <button class="setup-button hidden">Setup</button>
+          <button class="start-button" onclick="startComfy(`person2`)">
+            Start
+          </button>
+          <button class="stop-button" onclick="stopComfy()">Stop</button>
+        </div>
+      </div>
+      <div class="card person3">
+        <div class="name"></div>
+        <div class="card-buttons hidden">
+          <button class="setup-button hidden">Setup</button>
+          <button class="start-button" onclick="startComfy(`person3`)">
+            Start
+          </button>
+          <button class="stop-button" onclick="stopComfy()">Stop</button>
+        </div>
+      </div>
     </div>
-    <div class="log-container">
-        <h3>Logs</h3>
-        <pre id="log-output" class="log-box"></pre>
-    </div>
-    
-</div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
-<script src="/script.js"></script>
-</body>
+    <!-- Log Box Container -->
+    <div class="log-box" id="logBox">
+      <div class="copy-section">
+        <span id="copyText"></span>
+        <button onclick="copyToClipboard()" aria-label="Copy" id="copyButton">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="#fff"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"
+            />
+          </svg>
+        </button>
+      </div>
+      <button class="back-button" aria-label="Go back" id="backButton">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="#fff"
+          viewBox="0 0 24 24"
+        >
+          <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+        </svg>
+      </button>
+
+      <div class="comfy-logs-wrapper">
+        <pre id="comfyLogBox"></pre>
+      </div>
+      <button
+        id="jumpToBottomButton"
+        class="jump-button"
+        aria-label="Jump to bottom"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="#fff"
+          viewBox="0 0 24 24"
+        >
+          <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z" />
+        </svg>
+      </button>
+    </div>
+  </body>
+  <script src="./script.js"></script>
 </html>

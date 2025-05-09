@@ -5,6 +5,6 @@ cd "/workspace/ComfyUI_3"
 echo "COMFYUI: Starting ComfyUI"
 TCMALLOC="$(ldconfig -p | grep -Po "libtcmalloc.so.\d" | head -n 1)"
 export LD_PRELOAD="${TCMALLOC}"
-python main.py --listen 0.0.0.0 > "/workspace/logs/comfyui_extra.log" 2>&1 &
+python main.py --listen 0.0.0.0 > "/workspace/logs/comfyui_shakthi.log" 2>&1 &
 echo "COMFYUI: ComfyUI Started"
 # deactivate

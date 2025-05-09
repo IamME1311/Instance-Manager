@@ -1,5 +1,6 @@
 const express = require('express');
 const { exec } = require('child_process');
+// const { spawn } = require('child_process');  // for windows testing
 
 const app = express();
 const PORT = 8000;
@@ -12,8 +13,8 @@ let lastUser = null;
 
 // Serve the external config.json
 app.get('/config.json', (req, res) => {
-  // res.sendFile(path.resolve('D:/Software_Projects/Cloud Deployment/dockerfiles/comfyUI dockerfile/app-manager/config.json'));
-  res.sendFile(path.resolve('/workspace/config_app.json'));
+  res.sendFile(path.resolve("D:\\Software_Projects\\Cloud Deployment\\dockerfiles\\comfyUI dockerfile\\config_app.json")); // local path
+  // res.sendFile(path.resolve("/workspace/config_app.json")); // cloud path
 });
 
 app.get('/stop_comfyui', (req, res) => {
@@ -38,6 +39,30 @@ app.get('/setup', (req, res) => {
 
 app.get('/start_comfyui/:user', (req, res) => {
     const user = req.params.user.toLowerCase();
+
+    // for windows testing
+    // const scriptPath = path.join(__dirname, 'scripts', `start_comfyui_${user}.bat`);
+    // const command = `"${scriptPath}"`;
+    // const child = spawn(command, [], { shell: true });
+    
+    // child.stdout.on('data', (data) => {
+    //   console.log(`stdout: ${data}`);
+    // });
+    
+    // child.stderr.on('data', (data) => {
+    //   console.error(`stderr: ${data}`);
+    // });
+    
+    // child.on('close', (code) => {
+    //   console.log(`BAT file exited with code ${code}`);
+    //   if (code === 0) {
+    //     res.send(`Started ComfyUI for ${user} successfully.`);
+    //   } else {
+    //     res.status(500).send(`Script exited with code ${code}`);
+    //   }
+    // });
+
+
     const scriptPath = `scripts/start_comfyui_${user}.sh`;
     
     exec(`${scriptPath} &`, (error, stdout, stderr) => {
@@ -68,6 +93,12 @@ app.get('/start_comfyui/:user', (req, res) => {
 // Expose global running state
 app.get('/status', (req, res) => {
     res.json({ running: isRunning , user:lastUser});
+});
+
+app.get('/copy_link', (req, res) => {
+    const podId = process.env.RUNPOD_POD_ID;
+    const podlink = `https://${podId}-8188.proxy.runpod.net`;
+    res.json({link:podlink})
 });
 
 app.listen(PORT, '0.0.0.0', () => {
