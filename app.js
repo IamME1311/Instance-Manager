@@ -13,7 +13,8 @@ let lastUser = null;
 
 // Serve the external config.json
 app.get('/config.json', (req, res) => {
-  res.sendFile(path.resolve("D:\\Software_Projects\\Cloud Deployment\\dockerfiles\\comfyUI dockerfile\\config_app.json")); // local path
+  // res.sendFile(path.resolve("D:\\Software_Projects\\Cloud Deployment\\dockerfiles\\comfyUI dockerfile\\config_app.json")); // local path
+  res.sendFile(path.resolve("D:\\Python Stuff\\config_app.json")); // local path
   // res.sendFile(path.resolve("/workspace/config_app.json")); // cloud path
 });
 
