@@ -84,6 +84,9 @@ h1 {
   flex: 0 0 25%;
   transform: scale(1.1);
   z-index: 2;
+  height:auto;
+  margin-top: 70px;
+  margin-bottom: inherit;
 }
 
 .card.hidden {
@@ -222,6 +225,10 @@ h1 {
 
 .copy-section button:hover {
   background-color: #4c7281;
+}
+
+#copyText{
+  font-family: sans-serif;
 }
 
 .comfy-logs-wrapper {
